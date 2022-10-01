@@ -25,9 +25,6 @@ func main() {
 	flag.StringVar(&logDestinationAddress, "log-destination-address", "graylog.lan:5555", "Specify the address and port to send logs to, such as localhost:5555.")
 	flag.Parse() // after declaring flags we need to call it
 
-	// docker doesn't have a public API for `docker context...`, so I'm
-	// manually setting the socket. This will go away because the aim for this
-	// is to be used in Home Assistant OS, not a macOS machine.
 	cli, err := client.NewClientWithOpts(client.FromEnv, client.WithAPIVersionNegotiation())
 	if err != nil {
 		panic(err)
