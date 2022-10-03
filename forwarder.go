@@ -155,7 +155,10 @@ func (f *Forwarder) startForwarding(id string) {
 					// The container has been removed, so we can't do anything to get logs.
 					return
 				}
-				panic(err)
+				// The other common error is that the container is marked for removal. Unfortunately, the
+				// SDK doesn't send a specific error message, so we log and return.
+				log.Println(err)
+				return
 			}
 
 			// Good reference at https://www.linode.com/docs/guides/developing-udp-and-tcp-clients-and-servers-in-go/
