@@ -2,7 +2,7 @@ module deviantintegral/docker-log-forwarder
 
 go 1.19
 
-require github.com/docker/docker v20.10.23+incompatible
+require github.com/docker/docker v24.0.7+incompatible
 
 require github.com/avast/retry-go v3.0.0+incompatible
 
